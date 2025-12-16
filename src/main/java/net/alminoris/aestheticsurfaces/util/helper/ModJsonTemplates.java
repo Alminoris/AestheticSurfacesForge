@@ -10,7 +10,7 @@ public class ModJsonTemplates
               },
               "result": {
                 "count": COUNT,
-                "item": "aestheticsurfaces:OUTPUT_NAME"
+                "id": "aestheticsurfaces:OUTPUT_NAME"
               }
             }
             """;

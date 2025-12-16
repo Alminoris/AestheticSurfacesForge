@@ -139,7 +139,7 @@ public class ModJsonHelper
     {
         String projectPath = System.getProperty("user.dir");
 
-        String filePath = projectPath.replace("run-data", "src\\main\\resources") + "/data/"+ AestheticSurfaces.MOD_ID+"/recipes/";
+        String filePath = projectPath.replace("run-data", "src\\main\\resources") + "/data/"+ AestheticSurfaces.MOD_ID+"/recipe/";
 
         File directory = new File(filePath);
         if (!directory.exists())
