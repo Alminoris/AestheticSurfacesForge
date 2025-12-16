@@ -28,7 +28,7 @@ public class PathBlock extends Block
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit)
+    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit)
     {
         ItemStack stack = player.getItemInHand(InteractionHand.MAIN_HAND);
 
@@ -47,13 +47,13 @@ public class PathBlock extends Block
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context)
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context)
     {
         return SHAPE;
     }
 
     @Override
-    protected RenderShape getRenderShape(BlockState state)
+    public RenderShape getRenderShape(BlockState state)
     {
         return RenderShape.MODEL;
     }

@@ -3,8 +3,6 @@ package net.alminoris.aestheticsurfaces.datagen;
 import net.alminoris.aestheticsurfaces.block.ModBlocks;
 import net.alminoris.aestheticsurfaces.util.helper.BlockSetsHelper;
 import net.alminoris.aestheticsurfaces.util.helper.ModJsonHelper;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -14,19 +12,17 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder
 {
-    public ModRecipeProvider(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pRegistries)
+    public ModRecipeProvider(PackOutput pOutput)
     {
-        super(pOutput, pRegistries);
+        super(pOutput);
     }
 
     @Override
-    protected void buildRecipes(RecipeOutput recipeExporter)
+    protected void buildRecipes(Consumer<FinishedRecipe> recipeExporter)
     {
         for(String name : BlockSetsHelper.WOODS)
         {

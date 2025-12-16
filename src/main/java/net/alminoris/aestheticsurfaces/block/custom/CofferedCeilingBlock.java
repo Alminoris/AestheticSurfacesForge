@@ -32,7 +32,7 @@ public class CofferedCeilingBlock extends WaterloggableBlock
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos)
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos)
     {
         if (direction == Direction.UP)
         {
@@ -52,14 +52,14 @@ public class CofferedCeilingBlock extends WaterloggableBlock
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader world, BlockPos pos)
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos)
     {
         BlockPos supportPos = pos.offset(Direction.UP.getNormal());
         return world.getBlockState(supportPos).isSolidRender(world, supportPos);
     }
 
     @Override
-    protected VoxelShape getShape(BlockState p_60555_, BlockGetter p_60556_, BlockPos p_60557_, CollisionContext p_60558_)
+    public VoxelShape getShape(BlockState p_60555_, BlockGetter p_60556_, BlockPos p_60557_, CollisionContext p_60558_)
     {
         return Shapes.or(SHAPE1, SHAPE2, SHAPE3, SHAPE4);
     }

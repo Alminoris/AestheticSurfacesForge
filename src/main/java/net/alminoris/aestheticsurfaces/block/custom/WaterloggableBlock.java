@@ -39,7 +39,7 @@ public class WaterloggableBlock extends Block implements SimpleWaterloggedBlock
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos)
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos)
     {
         if (state.getValue(WATERLOGGED))
         {

@@ -40,7 +40,7 @@ public class WallpaperBlock extends YAxisRotatedBlock
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos)
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos)
     {
         Direction facing = state.getValue(FACING);
         if (direction == facing)
@@ -71,7 +71,7 @@ public class WallpaperBlock extends YAxisRotatedBlock
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader world, BlockPos pos)
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos)
     {
         Direction facing = state.getValue(FACING);
         BlockPos supportPos = pos.offset(facing.getNormal());

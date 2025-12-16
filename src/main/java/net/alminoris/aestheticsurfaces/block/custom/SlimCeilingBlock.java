@@ -24,7 +24,7 @@ public class SlimCeilingBlock extends WaterloggableBlock
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos)
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos)
     {
         if (direction == Direction.UP)
         {
@@ -44,7 +44,7 @@ public class SlimCeilingBlock extends WaterloggableBlock
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader world, BlockPos pos)
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos)
     {
         BlockPos supportPos = pos.offset(Direction.UP.getNormal());
         return world.getBlockState(supportPos).isSolidRender(world, supportPos);
@@ -52,7 +52,7 @@ public class SlimCeilingBlock extends WaterloggableBlock
 
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context)
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context)
     {
         return SHAPE;
     }
