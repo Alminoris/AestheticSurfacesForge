@@ -35,29 +35,23 @@ import org.slf4j.Logger;
 @Mod(AestheticSurfaces.MOD_ID)
 public class AestheticSurfaces
 {
-    // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "aestheticsurfaces";
-    // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public AestheticSurfaces(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
 
-        // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
         ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
         ModItemGroups.register(modEventBus);
 
-        // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
-        // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
-        // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
