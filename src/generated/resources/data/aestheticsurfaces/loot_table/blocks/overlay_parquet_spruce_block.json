@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aestheticsurfaces:overlay_parquet_spruce"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "aestheticsurfaces:blocks/overlay_parquet_spruce_block"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aestheticsurfaces:basket_weave_parquet_western_serviceberry"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "aestheticsurfaces:blocks/basket_weave_parquet_western_serviceberry_block"
+}
