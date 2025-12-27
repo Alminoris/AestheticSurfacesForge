@@ -159,5 +159,5 @@
   "block.aestheticsurfaces.wallpaper_red": "Rouge Papier peint",
   "block.aestheticsurfaces.wallpaper_white": "Blanc Papier peint",
   "block.aestheticsurfaces.wallpaper_yellow": "Jaune Papier peint",
-  "itemgroup.asurftab": "Aesthetic Surfaces"
+  "itemGroup.aestheticsurfaces.asurftab": "Aesthetic Surfaces"
 }

@@ -159,5 +159,5 @@
   "block.aestheticsurfaces.wallpaper_red": "Rojo Papel pintado",
   "block.aestheticsurfaces.wallpaper_white": "Blanco Papel pintado",
   "block.aestheticsurfaces.wallpaper_yellow": "Amarillo Papel pintado",
-  "itemgroup.asurftab": "Aesthetic Surfaces"
+  "itemGroup.aestheticsurfaces.asurftab": "Aesthetic Surfaces"
 }

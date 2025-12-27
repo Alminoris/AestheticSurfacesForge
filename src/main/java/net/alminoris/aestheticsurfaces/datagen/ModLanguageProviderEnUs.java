@@ -41,7 +41,7 @@ public class ModLanguageProviderEnUs extends LanguageProvider
             add("block." + AestheticSurfaces.MOD_ID + "." + path, displayName);
         }
 
-        add("itemgroup.asurftab", "Aesthetic Surfaces");
+        add("itemGroup.aestheticsurfaces.asurftab", "Aesthetic Surfaces");
     }
 
     public static String movePrefix(String input, String[] arr)

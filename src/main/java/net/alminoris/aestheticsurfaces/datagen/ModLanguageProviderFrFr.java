@@ -134,6 +134,6 @@ public class ModLanguageProviderFrFr extends LanguageProvider
             }
         }
 
-        add("itemgroup.asurftab", "Aesthetic Surfaces");
+        add("itemGroup.aestheticsurfaces.asurftab", "Aesthetic Surfaces");
     }
 }

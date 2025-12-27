@@ -134,6 +134,6 @@ public class ModLanguageProviderEsEs extends LanguageProvider
             }
         }
 
-        add("itemgroup.asurftab", "Aesthetic Surfaces");
+        add("itemGroup.aestheticsurfaces.asurftab", "Aesthetic Surfaces");
     }
 }

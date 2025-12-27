@@ -1254,5 +1254,5 @@
   "block.aestheticsurfaces.yellow_wool": "Yellow Wool",
   "block.aestheticsurfaces.zombie_head": "Zombie Head",
   "block.aestheticsurfaces.zombie_wall_head": "Zombie Wall Head",
-  "itemgroup.asurftab": "Aesthetic Surfaces"
+  "itemGroup.aestheticsurfaces.asurftab": "Aesthetic Surfaces"
 }
