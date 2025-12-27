@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:slim_ceiling_popcorn_from_diorite_slab_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:slim_ceiling_smooth_from_smooth_quartz_slab_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

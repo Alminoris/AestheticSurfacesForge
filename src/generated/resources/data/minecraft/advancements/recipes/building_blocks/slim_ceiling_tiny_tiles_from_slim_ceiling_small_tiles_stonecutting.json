@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:slim_ceiling_tiny_tiles_from_slim_ceiling_small_tiles_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

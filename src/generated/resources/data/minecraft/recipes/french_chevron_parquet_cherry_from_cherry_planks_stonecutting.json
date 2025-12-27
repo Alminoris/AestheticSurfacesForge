@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 3,
-  "ingredient": {
-    "item": "minecraft:cherry_planks"
-  },
-  "result": "aestheticsurfaces:french_chevron_parquet_cherry"
-}

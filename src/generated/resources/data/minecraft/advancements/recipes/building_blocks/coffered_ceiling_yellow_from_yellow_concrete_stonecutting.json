@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:coffered_ceiling_yellow_from_yellow_concrete_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

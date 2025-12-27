@@ -43,6 +43,5 @@
     "recipes": [
       "aestheticsurfaces:transitional_carpet_brown_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

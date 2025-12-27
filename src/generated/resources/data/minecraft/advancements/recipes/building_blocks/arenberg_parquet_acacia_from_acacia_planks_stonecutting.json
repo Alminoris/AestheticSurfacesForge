@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:arenberg_parquet_acacia_from_acacia_planks_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

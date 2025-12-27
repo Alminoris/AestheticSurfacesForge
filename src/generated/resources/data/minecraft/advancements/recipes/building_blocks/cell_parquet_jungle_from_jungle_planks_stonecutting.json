@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:cell_parquet_jungle_from_jungle_planks_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

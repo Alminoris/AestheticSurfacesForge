@@ -30,6 +30,5 @@
     "recipes": [
       "minecraft:veneer_tuff_bricks_from_air_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

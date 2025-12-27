@@ -56,6 +56,5 @@
     "recipes": [
       "aestheticsurfaces:slim_ceiling_gypsum"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

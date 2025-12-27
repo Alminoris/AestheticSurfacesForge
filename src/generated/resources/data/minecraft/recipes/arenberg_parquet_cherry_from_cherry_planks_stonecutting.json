@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 3,
-  "ingredient": {
-    "item": "minecraft:cherry_planks"
-  },
-  "result": "aestheticsurfaces:arenberg_parquet_cherry"
-}
