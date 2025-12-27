@@ -3,6 +3,7 @@ package net.alminoris.aestheticsurfaces.item;
 import net.alminoris.aestheticsurfaces.AestheticSurfaces;
 import net.alminoris.aestheticsurfaces.block.ModBlocks;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fml.ModList;
@@ -34,7 +35,7 @@ public class ModItemGroups
 
     public static List<String> CEILING_TYPES = List.of("tiles", "small_tiles", "tiny_tiles", "gypsum", "concrete", "smooth", "popcorn");
 
-    public static List<String> BRICKS_NAMES = List.of("bricks", "deepslate_bricks", "mossy_stone_bricks", "mud_bricks", "nether_bricks",
+    public static List<String> BRICKS_NAMES = List.of("bricks", "deepslate_bricks", "mossy_stone_bricks", "nether_bricks",
             "red_nether_bricks", "polished_blackstone_bricks", "prismarine_bricks", "quartz_bricks", "stone_bricks", "tuff_bricks", "end_stone_bricks");
 
 
@@ -46,7 +47,7 @@ public class ModItemGroups
 
         @Override
         public Component getDisplayName() {
-            return Component.translatable("itemGroup." + AestheticSurfaces.MOD_ID + ".asurftab");
+            return new TranslatableComponent("itemGroup." + AestheticSurfaces.MOD_ID + ".asurftab");
         }
     };
 
