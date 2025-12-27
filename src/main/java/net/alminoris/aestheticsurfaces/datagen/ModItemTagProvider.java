@@ -5,7 +5,7 @@ import net.alminoris.aestheticsurfaces.block.ModBlocks;
 import net.alminoris.aestheticsurfaces.item.ModItemGroups;
 import net.alminoris.aestheticsurfaces.util.ModTags;
 import net.alminoris.aestheticsurfaces.util.helper.BlockSetsHelper;
-import net.minecraft.core.HolderLookup;
+
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
