@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "aestheticsurfaces:arenberg_parquet_oak",
     "aestheticsurfaces:basket_weave_parquet_oak",
@@ -55,13 +56,6 @@
     "aestheticsurfaces:french_chevron_parquet_warped",
     "aestheticsurfaces:herringbone_parquet_warped",
     "aestheticsurfaces:inlaid_parquet_warped",
-    "aestheticsurfaces:overlay_parquet_warped",
-    "aestheticsurfaces:arenberg_parquet_mangrove",
-    "aestheticsurfaces:basket_weave_parquet_mangrove",
-    "aestheticsurfaces:cell_parquet_mangrove",
-    "aestheticsurfaces:french_chevron_parquet_mangrove",
-    "aestheticsurfaces:herringbone_parquet_mangrove",
-    "aestheticsurfaces:inlaid_parquet_mangrove",
-    "aestheticsurfaces:overlay_parquet_mangrove"
+    "aestheticsurfaces:overlay_parquet_warped"
   ]
 }

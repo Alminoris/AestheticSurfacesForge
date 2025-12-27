@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 3,
   "ingredient": {
     "item": "minecraft:birch_planks"
   },
-  "result": "aestheticsurfaces:arenberg_parquet_birch"
+  "result": "aestheticsurfaces:arenberg_parquet_birch",
+  "count": 3
 }

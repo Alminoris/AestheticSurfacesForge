@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 3,
   "ingredient": {
     "item": "minecraft:nether_bricks"
   },
-  "result": "aestheticsurfaces:veneer_nether_bricks"
+  "result": "aestheticsurfaces:veneer_nether_bricks",
+  "count": 3
 }

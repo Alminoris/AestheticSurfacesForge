@@ -25,9 +25,9 @@ public class AestheticSurfaces
     public static final String MOD_ID = "aestheticsurfaces";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public AestheticSurfaces(FMLJavaModLoadingContext context)
+    public AestheticSurfaces()
     {
-        IEventBus modEventBus = context.getModEventBus();
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
 

@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
   "ingredient": {
     "item": "minecraft:diorite_slab"
   },
-  "result": "aestheticsurfaces:slim_ceiling_popcorn"
+  "result": "aestheticsurfaces:slim_ceiling_popcorn",
+  "count": 2
 }

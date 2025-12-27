@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "minecraft:smooth_stone"
   },
-  "result": "aestheticsurfaces:smooth_stone_road"
+  "result": "aestheticsurfaces:smooth_stone_road",
+  "count": 1
 }

@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
   "ingredient": {
     "item": "minecraft:gray_concrete"
   },
-  "result": "aestheticsurfaces:coffered_ceiling_gray"
+  "result": "aestheticsurfaces:coffered_ceiling_gray",
+  "count": 2
 }
