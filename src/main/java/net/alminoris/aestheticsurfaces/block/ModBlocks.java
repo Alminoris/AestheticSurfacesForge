@@ -2,13 +2,13 @@ package net.alminoris.aestheticsurfaces.block;
 
 import net.alminoris.aestheticsurfaces.AestheticSurfaces;
 import net.alminoris.aestheticsurfaces.block.custom.*;
+import net.alminoris.aestheticsurfaces.item.ModItemGroups;
 import net.alminoris.aestheticsurfaces.item.ModItems;
 import net.alminoris.aestheticsurfaces.util.helper.BlockSetsHelper;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -29,7 +29,7 @@ public class ModBlocks
     {{
         for(String name : BlockSetsHelper.getWoods())
         {
-            for (String typeName : BlockSetsHelper.PARQUET_TYPES)
+            for (String typeName : ModItemGroups.PARQUET_TYPES)
             {
                 put(name+"_"+typeName, registerBlock(typeName+"_parquet_"+name, () -> new YAxisRotatedCarpetBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))));
             }
@@ -40,7 +40,7 @@ public class ModBlocks
     {{
         for(String name : BlockSetsHelper.getWoods())
         {
-            for (String typeName : BlockSetsHelper.PARQUET_TYPES)
+            for (String typeName : ModItemGroups.PARQUET_TYPES)
             {
                 put(name+"_"+typeName, registerBlock(typeName+"_parquet_"+name+"_block", () -> new ParquetBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))));
             }
@@ -49,7 +49,7 @@ public class ModBlocks
 
     public static final Dictionary<String, RegistryObject<Block>> SLIM_CEILINGS = new Hashtable<>()
     {{
-        for(String name : BlockSetsHelper.CEILING_TYPES)
+        for(String name : ModItemGroups.CEILING_TYPES)
         {
             put(name, registerBlock("slim_ceiling_"+name, () -> new SlimCeilingBlock(BlockBehaviour.Properties.copy(Blocks.STONE))));
         }
@@ -65,7 +65,7 @@ public class ModBlocks
 
     public static final Dictionary<String, RegistryObject<Block>> BRICKS_VENEERS = new Hashtable<>()
     {{
-        for(String name : BlockSetsHelper.BRICKS_NAMES)
+        for(String name : ModItemGroups.BRICKS_NAMES)
         {
             put(name, registerBlock("veneer_"+name, () -> new BricksVeneerBlock(BlockBehaviour.Properties.copy(Blocks.BRICKS))));
         }
@@ -160,7 +160,7 @@ public class ModBlocks
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block)
     {
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(ModItemGroups.ASURF_TAB)));
     }
 
     public static void register(IEventBus eventBus)

@@ -1,9 +1,9 @@
 package net.alminoris.aestheticsurfaces.datagen.loot;
 
 import net.alminoris.aestheticsurfaces.block.ModBlocks;
+import net.alminoris.aestheticsurfaces.item.ModItemGroups;
 import net.alminoris.aestheticsurfaces.util.helper.BlockSetsHelper;
-import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -11,17 +11,10 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.Set;
-
-public class ModBlockLootTables extends BlockLootSubProvider
+public class ModBlockLootTables extends BlockLoot
 {
-    public ModBlockLootTables()
-    {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
-    }
-
     @Override
-    protected void generate()
+    protected void addTables()
     {
         for(String name : BlockSetsHelper.COLORS)
         {
@@ -38,12 +31,12 @@ public class ModBlockLootTables extends BlockLootSubProvider
             dropSelf(ModBlocks.COFFERED_CEILINGS.get(name).get());
         }
 
-        for(String name : BlockSetsHelper.CEILING_TYPES)
+        for(String name : ModItemGroups.CEILING_TYPES)
         {
             dropSelf(ModBlocks.SLIM_CEILINGS.get(name).get());
         }
 
-        for(String name : BlockSetsHelper.BRICKS_NAMES)
+        for(String name : ModItemGroups.BRICKS_NAMES)
         {
             dropSelf(ModBlocks.BRICKS_VENEERS.get(name).get());
         }
@@ -51,11 +44,11 @@ public class ModBlockLootTables extends BlockLootSubProvider
         dropSelf(ModBlocks.SMOOTH_STONE_ROAD.get());
 
         for(String name : BlockSetsHelper.getWoods())
-            for (String typeName : BlockSetsHelper.PARQUET_TYPES)
+            for (String typeName : ModItemGroups.PARQUET_TYPES)
                 dropSelf(ModBlocks.PARQUET_CARPETS.get(name+"_"+typeName).get());
 
         for(String name : BlockSetsHelper.getWoods())
-            for (String typeName : BlockSetsHelper.PARQUET_TYPES)
+            for (String typeName : ModItemGroups.PARQUET_TYPES)
                 this.add(ModBlocks.PARQUET_BLOCKS.get(name + "_" + typeName).get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).add(LootItem.lootTableItem(ModBlocks.PARQUET_CARPETS.get(name + "_" + typeName).get()))));
     }
 

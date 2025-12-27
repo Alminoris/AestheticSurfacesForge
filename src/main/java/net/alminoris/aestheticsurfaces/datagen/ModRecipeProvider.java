@@ -1,9 +1,10 @@
 package net.alminoris.aestheticsurfaces.datagen;
 
 import net.alminoris.aestheticsurfaces.block.ModBlocks;
+import net.alminoris.aestheticsurfaces.item.ModItemGroups;
 import net.alminoris.aestheticsurfaces.util.helper.BlockSetsHelper;
 import net.alminoris.aestheticsurfaces.util.helper.ModJsonHelper;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -16,30 +17,30 @@ import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder
 {
-    public ModRecipeProvider(PackOutput pOutput)
+    public ModRecipeProvider(DataGenerator pOutput)
     {
         super(pOutput);
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> recipeExporter)
+    protected void buildCraftingRecipes(Consumer<FinishedRecipe> recipeExporter)
     {
         for(String name : BlockSetsHelper.WOODS)
         {
             Block block = ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath("minecraft", name+"_planks"));
 
-            for (String typeName : BlockSetsHelper.PARQUET_TYPES)
+            for (String typeName : ModItemGroups.PARQUET_TYPES)
             {
-                stonecutterResultFromBase(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.PARQUET_CARPETS.get(name+"_"+typeName).get(), block, 3);
+                stonecutterResultFromBase(recipeExporter, ModBlocks.PARQUET_CARPETS.get(name+"_"+typeName).get(), block, 3);
             }
         }
 
-        stonecutterResultFromBase(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SLIM_CEILINGS.get("smooth").get(), Blocks.SMOOTH_QUARTZ_SLAB, 2);
-        stonecutterResultFromBase(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SLIM_CEILINGS.get("tiles").get(), ModBlocks.SLIM_CEILINGS.get("smooth").get(), 1);
-        stonecutterResultFromBase(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SLIM_CEILINGS.get("small_tiles").get(), ModBlocks.SLIM_CEILINGS.get("tiles").get(), 1);
-        stonecutterResultFromBase(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SLIM_CEILINGS.get("tiny_tiles").get(), ModBlocks.SLIM_CEILINGS.get("small_tiles").get(), 1);
-        stonecutterResultFromBase(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SLIM_CEILINGS.get("concrete").get(), Blocks.LIGHT_GRAY_CONCRETE, 4);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SLIM_CEILINGS.get("gypsum").get())
+        stonecutterResultFromBase(recipeExporter, ModBlocks.SLIM_CEILINGS.get("smooth").get(), Blocks.SMOOTH_QUARTZ_SLAB, 2);
+        stonecutterResultFromBase(recipeExporter, ModBlocks.SLIM_CEILINGS.get("tiles").get(), ModBlocks.SLIM_CEILINGS.get("smooth").get(), 1);
+        stonecutterResultFromBase(recipeExporter, ModBlocks.SLIM_CEILINGS.get("small_tiles").get(), ModBlocks.SLIM_CEILINGS.get("tiles").get(), 1);
+        stonecutterResultFromBase(recipeExporter, ModBlocks.SLIM_CEILINGS.get("tiny_tiles").get(), ModBlocks.SLIM_CEILINGS.get("small_tiles").get(), 1);
+        stonecutterResultFromBase(recipeExporter, ModBlocks.SLIM_CEILINGS.get("concrete").get(), Blocks.LIGHT_GRAY_CONCRETE, 4);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.SLIM_CEILINGS.get("gypsum").get())
                 .requires(Items.BONE_MEAL)
                 .requires(Blocks.SAND)
                 .requires(Items.WATER_BUCKET)
@@ -47,25 +48,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.SAND), has(Blocks.SAND))
                 .unlockedBy(getHasName(Items.WATER_BUCKET), has(Items.WATER_BUCKET))
                 .save(recipeExporter);
-        stonecutterResultFromBase(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SLIM_CEILINGS.get("popcorn").get(), Blocks.DIORITE_SLAB, 2);
+        stonecutterResultFromBase(recipeExporter, ModBlocks.SLIM_CEILINGS.get("popcorn").get(), Blocks.DIORITE_SLAB, 2);
 
-        for (String name : BlockSetsHelper.BRICKS_NAMES)
+        for (String name : ModItemGroups.BRICKS_NAMES)
         {
             Block block = ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath("minecraft", name));
-            stonecutterResultFromBase(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BRICKS_VENEERS.get(name).get(), block, 3);
+            stonecutterResultFromBase(recipeExporter, ModBlocks.BRICKS_VENEERS.get(name).get(), block, 3);
         }
 
         for (String name : BlockSetsHelper.COLORS)
         {
-            stonecutterResultFromBase(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.COFFERED_CEILINGS.get(name).get(),
+            stonecutterResultFromBase(recipeExporter, ModBlocks.COFFERED_CEILINGS.get(name).get(),
                     ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath("minecraft", name+"_concrete")), 2);
         }
 
-        stonecutterResultFromBase(recipeExporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SMOOTH_STONE_ROAD.get(), Blocks.SMOOTH_STONE, 1);
+        stonecutterResultFromBase(recipeExporter, ModBlocks.SMOOTH_STONE_ROAD.get(), Blocks.SMOOTH_STONE, 1);
 
-        for(String name : BlockSetsHelper.EXTRA_WOODS_AN)
+        for(String name : ModItemGroups.AN_WOOD_NAMES)
         {
-            for (String typeName : BlockSetsHelper.PARQUET_TYPES)
+            for (String typeName : ModItemGroups.PARQUET_TYPES)
             {
                 ModJsonHelper.createStonecuttingRecipe("arborealnature:"+name+"_planks",
                         ForgeRegistries.BLOCKS.getKey(ModBlocks.PARQUET_CARPETS.get(name+"_"+typeName).get()).getPath(), "3");
@@ -74,9 +75,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             }
         }
 
-        for(String name : BlockSetsHelper.EXTRA_WOODS_WF)
+        for(String name : ModItemGroups.WF_WOOD_NAMES)
         {
-            for (String typeName : BlockSetsHelper.PARQUET_TYPES)
+            for (String typeName : ModItemGroups.PARQUET_TYPES)
             {
                 ModJsonHelper.createStonecuttingRecipe("wildfields:"+name+"_planks",
                         ForgeRegistries.BLOCKS.getKey(ModBlocks.PARQUET_CARPETS.get(name+"_"+typeName).get()).getPath(), "3");
@@ -85,9 +86,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             }
         }
 
-        for(String name : BlockSetsHelper.WT_WOOD_NAMES)
+        for(String name : ModItemGroups.WT_WOOD_NAMES)
         {
-            for (String typeName : BlockSetsHelper.PARQUET_TYPES)
+            for (String typeName : ModItemGroups.PARQUET_TYPES)
             {
                 ModJsonHelper.createStonecuttingRecipe("whisperleaftrees:"+name+"_planks",
                         ForgeRegistries.BLOCKS.getKey(ModBlocks.PARQUET_CARPETS.get(name+"_"+typeName).get()).getPath(), "3");
@@ -96,9 +97,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             }
         }
 
-        for(String name : BlockSetsHelper.ST_WOOD_NAMES)
+        for(String name : ModItemGroups.ST_WOOD_NAMES)
         {
-            for (String typeName : BlockSetsHelper.PARQUET_TYPES)
+            for (String typeName : ModItemGroups.PARQUET_TYPES)
             {
                 ModJsonHelper.createStonecuttingRecipe("silverwoodtrees:"+name+"_planks",
                         ForgeRegistries.BLOCKS.getKey(ModBlocks.PARQUET_CARPETS.get(name+"_"+typeName).get()).getPath(), "3");
@@ -107,9 +108,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             }
         }
 
-        for(String name : BlockSetsHelper.MT_WOOD_NAMES)
+        for(String name : ModItemGroups.MT_WOOD_NAMES)
         {
-            for (String typeName : BlockSetsHelper.PARQUET_TYPES)
+            for (String typeName : ModItemGroups.PARQUET_TYPES)
             {
                 ModJsonHelper.createStonecuttingRecipe("missingtrees:"+name+"_planks",
                         ForgeRegistries.BLOCKS.getKey(ModBlocks.PARQUET_CARPETS.get(name+"_"+typeName).get()).getPath(), "3");
@@ -118,9 +119,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             }
         }
 
-        for(String name : BlockSetsHelper.NSS_WOOD_NAMES)
+        for(String name : ModItemGroups.NSS_WOOD_NAMES)
         {
-            for (String typeName : BlockSetsHelper.PARQUET_TYPES)
+            for (String typeName : ModItemGroups.PARQUET_TYPES)
             {
                 ModJsonHelper.createStonecuttingRecipe("natures_spirit:"+name.replace("_nss", "")+"_planks",
                         ForgeRegistries.BLOCKS.getKey(ModBlocks.PARQUET_CARPETS.get(name+"_"+typeName).get()).getPath(), "3");
@@ -129,7 +130,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             }
         }
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("black").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("black").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.WHITE_WOOL)
@@ -138,7 +139,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.BLACK_WOOL), has(Blocks.BLACK_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("blue").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("blue").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.LIME_WOOL)
@@ -147,7 +148,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.BLUE_WOOL), has(Blocks.BLUE_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("brown").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("brown").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.BLACK_WOOL)
@@ -156,7 +157,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.BROWN_WOOL), has(Blocks.BROWN_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("cyan").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("cyan").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.PURPLE_WOOL)
@@ -165,7 +166,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.CYAN_WOOL), has(Blocks.CYAN_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("gray").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("gray").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.GREEN_WOOL)
@@ -174,7 +175,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.GRAY_WOOL), has(Blocks.GRAY_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("green").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("green").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.BROWN_WOOL)
@@ -183,7 +184,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.GREEN_WOOL), has(Blocks.GREEN_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("light_blue").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("light_blue").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.CYAN_WOOL)
@@ -192,7 +193,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.LIGHT_BLUE_WOOL), has(Blocks.LIGHT_BLUE_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("light_gray").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("light_gray").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.GRAY_WOOL)
@@ -201,7 +202,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.LIGHT_GRAY_WOOL), has(Blocks.LIGHT_GRAY_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("lime").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("lime").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.LIGHT_BLUE_WOOL)
@@ -210,7 +211,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.LIME_WOOL), has(Blocks.LIME_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("magenta").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("magenta").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.RED_WOOL)
@@ -219,7 +220,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.MAGENTA_WOOL), has(Blocks.MAGENTA_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("orange").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("orange").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.YELLOW_WOOL)
@@ -228,7 +229,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.ORANGE_WOOL), has(Blocks.ORANGE_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("pink").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("pink").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.MAGENTA_WOOL)
@@ -237,7 +238,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.PINK_WOOL), has(Blocks.PINK_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("purple").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("purple").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.PINK_WOOL)
@@ -246,7 +247,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.PURPLE_WOOL), has(Blocks.PURPLE_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("red").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("red").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.ORANGE_WOOL)
@@ -255,7 +256,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.RED_WOOL), has(Blocks.RED_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("white").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("white").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.LIGHT_GRAY_WOOL)
@@ -264,7 +265,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blocks.WHITE_WOOL), has(Blocks.WHITE_WOOL))
                 .save(recipeExporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("yellow").get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get("yellow").get(), 4)
                 .pattern("##")
                 .pattern("**")
                 .define('#', Blocks.BLUE_WOOL)
@@ -275,19 +276,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         for(String name : BlockSetsHelper.COLORS)
         {
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SIMPLE_CARPETS.get(name).get(), 4)
+            ShapedRecipeBuilder.shaped(ModBlocks.SIMPLE_CARPETS.get(name).get(), 4)
                     .pattern("##")
                     .define('#', ModBlocks.SIMPLE_CARPET_BLOCKS.get(name).get())
                     .unlockedBy(getHasName(ModBlocks.SIMPLE_CARPET_BLOCKS.get(name).get()), has(ModBlocks.SIMPLE_CARPET_BLOCKS.get(name).get()))
                     .save(recipeExporter);
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SMOOTH_CARPETS.get(name).get(), 4)
+            ShapedRecipeBuilder.shaped(ModBlocks.SMOOTH_CARPETS.get(name).get(), 4)
                     .pattern("##")
                     .define('#', ModBlocks.SMOOTH_CARPET_BLOCKS.get(name).get())
                     .unlockedBy(getHasName(ModBlocks.SMOOTH_CARPET_BLOCKS.get(name).get()), has(ModBlocks.SMOOTH_CARPET_BLOCKS.get(name).get()))
                     .save(recipeExporter);
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SMOOTH_CARPET_BLOCKS.get(name).get(), 4)
+            ShapedRecipeBuilder.shaped(ModBlocks.SMOOTH_CARPET_BLOCKS.get(name).get(), 4)
                     .pattern("##")
                     .pattern("##")
                     .define('#', ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath("minecraft", name+"_wool")))
@@ -295,7 +296,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                             has(ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath("minecraft", name+"_wool"))))
                     .save(recipeExporter);
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SIMPLE_CARPET_BLOCKS.get(name).get(), 1)
+            ShapedRecipeBuilder.shaped(ModBlocks.SIMPLE_CARPET_BLOCKS.get(name).get(), 1)
                     .pattern("RGB")
                     .pattern(" # ")
                     .define('R', Items.RED_DYE)
@@ -306,34 +307,34 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                             has(ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath("minecraft", name+"_wool"))))
                     .save(recipeExporter);
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_CARPETS.get(name).get(), 4)
+            ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_CARPETS.get(name).get(), 4)
                     .pattern("##")
                     .define('#', ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get(name).get())
                     .unlockedBy(getHasName(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get(name).get()), has(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get(name).get()))
                     .save(recipeExporter);
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SIMPLE_WALLPAPERS.get(name).get(), 4)
+            ShapedRecipeBuilder.shaped(ModBlocks.SIMPLE_WALLPAPERS.get(name).get(), 4)
                     .pattern("#")
                     .pattern("#")
                     .define('#', ModBlocks.SIMPLE_CARPET_BLOCKS.get(name).get())
                     .unlockedBy(getHasName(ModBlocks.SIMPLE_CARPET_BLOCKS.get(name).get()), has(ModBlocks.SIMPLE_CARPET_BLOCKS.get(name).get()))
                     .save(recipeExporter);
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SMOOTH_WALLPAPERS.get(name).get(), 4)
+            ShapedRecipeBuilder.shaped(ModBlocks.SMOOTH_WALLPAPERS.get(name).get(), 4)
                     .pattern("#")
                     .pattern("#")
                     .define('#', ModBlocks.SMOOTH_CARPET_BLOCKS.get(name).get())
                     .unlockedBy(getHasName(ModBlocks.SMOOTH_CARPET_BLOCKS.get(name).get()), has(ModBlocks.SMOOTH_CARPET_BLOCKS.get(name).get()))
                     .save(recipeExporter);
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.TRANSITIONAL_WALLPAPERS.get(name).get(), 4)
+            ShapedRecipeBuilder.shaped(ModBlocks.TRANSITIONAL_WALLPAPERS.get(name).get(), 4)
                     .pattern("#")
                     .pattern("#")
                     .define('#', ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get(name).get())
                     .unlockedBy(getHasName(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get(name).get()), has(ModBlocks.TRANSITIONAL_CARPET_BLOCKS.get(name).get()))
                     .save(recipeExporter);
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.WALLPAPERS.get(name).get(), 4)
+            ShapedRecipeBuilder.shaped(ModBlocks.WALLPAPERS.get(name).get(), 4)
                     .pattern("#")
                     .pattern("#")
                     .define('#', ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath("minecraft", name+"_wool")))

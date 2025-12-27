@@ -2,10 +2,11 @@ package net.alminoris.aestheticsurfaces.datagen;
 
 import net.alminoris.aestheticsurfaces.AestheticSurfaces;
 import net.alminoris.aestheticsurfaces.block.ModBlocks;
+import net.alminoris.aestheticsurfaces.item.ModItemGroups;
 import net.alminoris.aestheticsurfaces.util.helper.BlockSetsHelper;
 import net.alminoris.aestheticsurfaces.util.helper.ModJsonHelper;
 import net.alminoris.aestheticsurfaces.util.helper.ModJsonTemplates;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -19,7 +20,7 @@ import java.util.Hashtable;
 
 public class ModBlockStateProvider extends BlockStateProvider
 {
-    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper)
+    public ModBlockStateProvider(DataGenerator output, ExistingFileHelper exFileHelper)
     {
         super(output, AestheticSurfaces.MOD_ID, exFileHelper);
     }
@@ -36,18 +37,18 @@ public class ModBlockStateProvider extends BlockStateProvider
             registerCofferedCeilingBlock(ModBlocks.COFFERED_CEILINGS.get(name), name);
         }
 
-        for(String name : BlockSetsHelper.CEILING_TYPES)
+        for(String name : ModItemGroups.CEILING_TYPES)
         {
             registerSlimCeilingBlock(ModBlocks.SLIM_CEILINGS.get(name), name);
         }
 
-        for(String name : BlockSetsHelper.BRICKS_NAMES)
+        for(String name : ModItemGroups.BRICKS_NAMES)
         {
             registerBricksVeneerBlock(ModBlocks.BRICKS_VENEERS.get(name), name);
         }
 
         for(String name : BlockSetsHelper.getWoods())
-            for (String typeName : BlockSetsHelper.PARQUET_TYPES)
+            for (String typeName : ModItemGroups.PARQUET_TYPES)
                 registerCarpetAndParquetBlock(ModBlocks.PARQUET_BLOCKS.get(name+"_"+typeName), ModBlocks.PARQUET_CARPETS.get(name+"_"+typeName));
 
         registerPathBlock(ModBlocks.SMOOTH_STONE_ROAD, "minecraft:block/smooth_stone");
