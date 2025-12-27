@@ -29,7 +29,7 @@ public class ModItemGroups
     public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event)
     {
         ASURF_TAB = event.registerCreativeModeTab(ResourceLocation.fromNamespaceAndPath(AestheticSurfaces.MOD_ID, "asurftab"),
-                builder -> builder.icon(() -> new ItemStack(ModBlocks.SIMPLE_CARPETS.get("oak").get().asItem()))
+                builder -> builder.icon(() -> new ItemStack(ModBlocks.SIMPLE_CARPETS.get("white").get().asItem()))
                         .title(Component.translatable("itemgroup.asurftab")));
     }
 }
